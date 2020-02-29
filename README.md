@@ -82,7 +82,7 @@ Additional scripts to built libraries from source:
     * Similarly, if CuDNN is also installed, then support for that will be enabled. By default, if CuDNN is installed, then OpenCV's DNN module with support for Nvidia GPUS (only in OpenCV >= 4.2.0) will also be built. Note that this requires GPUs with Compute Capability (i.e. architecture) 5.3 or higher. Default behaviour is build for all supported architectures, but you can speed up the compilation by specifying the architecture in the `CUDA_ARCH_BIN` flag as described below.
     * Building OpenCV with CUDA enabled can take a very long time, since it has to build the same code for all GPU architectures. If you don't need to compile for all architectures, you can specify the architecture using `CUDA_ARCH_BIN` such as 30 for Kepler, 61 for Pascal, etc. Information about your GPU can be found at [Nvidia's page](https://developer.nvidia.com/cuda-gpus)
     * Non-free & patented algorithms in OpenCV such as SIFT & SURF have been enabled, for disabling them, set the flag `-D OPENCV_ENABLE_NONFREE=ON` to off
-    * OpenCV will be built without support for Python 2. If you would like to build it with Python 2 support, then add back the lines removed in [this commit](https://github.com/rsnk96/Ubuntu-Setup-Scripts/commit/1e50b5fabff0026300879eb73ed36bb9b34ed6c9) 
+    * OpenCV will be built without support for Python 2. If you would like to build it with Python 2 support, then add back the lines removed in [this commit](https://github.com/rsnk96/Ubuntu-Setup-Scripts/commit/1e50b5fabff0026300879eb73ed36bb9b34ed6c9)
     * After OpenCV installation, if you get an error of the sort `illegal hardware instructions` when you try to run a python or c++ program, that is because your CPU is an older one (Pentium/Celeron/...). You can overcome this by adding the following to the end of the cmake (just before the `..`)
 
       ```bash
@@ -100,16 +100,16 @@ Additional scripts to built libraries from source:
   Comment out the [line fetching the latest release tag](https://github.com/rsnk96/Ubuntu-Setup-Scripts/blob/master/Build-OpenCV.sh#L170) in the `Build-OpenCV` script.  
   Add the line below the above commented out one specifying the OpenCV version which you want like this: `latest_tag="3.4.5"`  
   Alternatively, you could just replace `$latest_tag` with the tag of the version in the following 2 lines: `git checkout -f $latest_tag`  
-  Make sure that the tag of the OpenCV version you want is correct. The tags of all the releases can be checked here - [https://github.com/opencv/opencv/tags](https://github.com/opencv/opencv/tags) 
+  Make sure that the tag of the OpenCV version you want is correct. The tags of all the releases can be checked here - [https://github.com/opencv/opencv/tags](https://github.com/opencv/opencv/tags)
 
   * Tensorflow  
   Similar to above, locate the [line fetching the latest release tag](https://github.com/rsnk96/Ubuntu-Setup-Scripts/blob/master/Build-ML.sh#L120) of Tensorflow and replace with the tag of the version required.  
   The tags of all the Tensorflow releases can be checked here - [https://github.com/tensorflow/tensorflow/tags](https://github.com/tensorflow/tensorflow/tags)
-* These scripts are written and tested on the following configurations - 
+* These scripts are written and tested on the following configurations -
   * Ubuntu 16.04 & 18.04
   * 32-bit and 64-bit Intel Processors
   * `ML-Build.sh` - NVIDIA GPUs including but not limited to GeForce GTX 1080, 1070, 940MX, 850M, and Titan X
-  
+
   Although it should work on other configurations out of the box, I have not tested them
 
 * Docker Images
@@ -128,3 +128,6 @@ In the description of shortcuts below, if two keys are connected with a `+`, the
 
 ## Alternatives
 * A Ubuntu customization dedicated to [robotics](https://github.com/ahundt/robotics_setup)
+
+## CUDA and CUDNN installation
+* check out [guide](cuda-installtion.md)
